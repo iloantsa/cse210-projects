@@ -23,7 +23,6 @@ public class ListingActivity : Activity
             "Who are some of your personal heroes?",
         };
         _items = new List<string>();
-        _count = 0;
 
 
     }
@@ -37,7 +36,7 @@ public class ListingActivity : Activity
         Console.WriteLine();
 
         GetListFromUser();
-        Console.WriteLine($"You listed {_count} items");
+        Console.WriteLine($"You listed {_items.Count} items");
 
     }
 
@@ -51,25 +50,30 @@ public class ListingActivity : Activity
 
     private void GetListFromUser()
     {
+
         DateTime endTime = DateTime.Now.AddSeconds(_duration);
 
         while (DateTime.Now < endTime)
         {
-            if (Console.KeyAvailable)
+            string input = Console.ReadLine();
+
+            if (DateTime.Now >= endTime)
+                break;
+
+            if (!string.IsNullOrWhiteSpace(input))
             {
-                string input = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(input))
-                {
-                    _items.Add(input);
-                }
+                _items.Add(input);
+                
             }
+
         }
-
-
-
-
     }
 
+
+
+
 }
+
+
 
 

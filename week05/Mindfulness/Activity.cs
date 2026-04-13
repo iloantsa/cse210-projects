@@ -27,9 +27,7 @@ public abstract class Activity
 
         Console.WriteLine("Get Ready...");
         ShowAnimation(3);
-
-        
-
+        Run();
         Console.WriteLine();
         Console.WriteLine($"Well done!");
         Console.WriteLine($"You spent {_duration} seconds in the {_name} Activity");
